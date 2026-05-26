@@ -1,0 +1,21 @@
+import type { PipelineResult } from '../types/pipeline'
+
+export async function runPipeline(): Promise<PipelineResult> {
+  const response = await fetch('/api/pipeline/run', { method: 'POST' })
+
+  if (!response.ok) {
+    const message = await response.text()
+    throw new Error(message || `Pipeline failed (${response.status})`)
+  }
+
+  return response.json() as Promise<PipelineResult>
+}
+
+export async function checkApiHealth(): Promise<boolean> {
+  try {
+    const response = await fetch('/api/health')
+    return response.ok
+  } catch {
+    return false
+  }
+}

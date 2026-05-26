@@ -50,6 +50,15 @@ TEXT_COLUMNS = (
     "notes",
 )
 DATE_COLUMNS = ("injury_date", "report_date")
+RAW_PREVIEW_COLUMNS = (
+    "claim_id",
+    "employee_name",
+    "injury_date",
+    "claim_status",
+    "total_paid",
+)
+CLEAN_PREVIEW_COLUMNS = RAW_PREVIEW_COLUMNS + ("days_to_report",)
+PREVIEW_ROW_LIMIT = 15
 
 
 def load_claims_csv(path: Path | None = None) -> pd.DataFrame:
@@ -224,6 +233,53 @@ def generate_summary_report(df: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
+def _df_preview_records(
+    df: pd.DataFrame, columns: tuple[str, ...], limit: int = PREVIEW_ROW_LIMIT
+) -> list[dict]:
+    available = [col for col in columns if col in df.columns]
+    preview = df.head(limit)[available].copy()
+    for col in preview.columns:
+        if pd.api.types.is_datetime64_any_dtype(preview[col]):
+            preview[col] = preview[col].dt.strftime("%Y-%m-%d")
+    return preview.fillna("").astype(str).to_dict(orient="records")
+
+
+def run_pipeline() -> dict:
+    """Execute the full pipeline and return results for the API / UI."""
+    raw_df = load_claims_csv()
+    clean_df = clean_claims_data(raw_df)
+    final_df = add_calculated_columns(clean_df)
+    report_text = generate_summary_report(final_df)
+    csv_path = export_clean_csv(final_df)
+    report_path = export_summary_report(final_df)
+
+    total_paid = float(final_df["total_paid"].fillna(0).sum())
+
+    return {
+        "stats": {
+            "rawRows": len(raw_df),
+            "cleanRows": len(final_df),
+            "removedRows": len(raw_df) - len(clean_df),
+            "columnCount": len(final_df.columns),
+            "totalPaid": total_paid,
+            "totalPaidFormatted": _format_currency(total_paid),
+        },
+        "rawPreview": {
+            "columns": list(RAW_PREVIEW_COLUMNS),
+            "rows": _df_preview_records(raw_df, RAW_PREVIEW_COLUMNS),
+        },
+        "cleanPreview": {
+            "columns": list(CLEAN_PREVIEW_COLUMNS),
+            "rows": _df_preview_records(final_df, CLEAN_PREVIEW_COLUMNS),
+        },
+        "report": report_text,
+        "outputs": {
+            "csv": str(csv_path.relative_to(PROJECT_ROOT)).replace("\\", "/"),
+            "report": str(report_path.relative_to(PROJECT_ROOT)).replace("\\", "/"),
+        },
+    }
+
+
 def export_summary_report(df: pd.DataFrame, path: Path | None = None) -> Path:
     """Generate and save the summary report."""
     output_path = path or OUTPUT_REPORT
@@ -234,21 +290,13 @@ def export_summary_report(df: pd.DataFrame, path: Path | None = None) -> Path:
 
 
 def main() -> None:
-    raw_df = load_claims_csv()
-    print(f"Loaded {len(raw_df)} rows from {INPUT_CSV.name}")
-
-    clean_df = clean_claims_data(raw_df)
-    removed = len(raw_df) - len(clean_df)
-    print(f"Cleaned to {len(clean_df)} rows ({removed} rows removed)")
-
-    final_df = add_calculated_columns(clean_df)
-    print(f"Added calculated column: days_to_report")
-
-    csv_path = export_clean_csv(final_df)
-    print(f"Saved clean CSV to {csv_path} ({len(final_df)} rows)")
-
-    report_path = export_summary_report(final_df)
-    print(f"Saved summary report to {report_path}")
+    result = run_pipeline()
+    stats = result["stats"]
+    print(f"Loaded {stats['rawRows']} rows from {INPUT_CSV.name}")
+    print(f"Cleaned to {stats['cleanRows']} rows ({stats['removedRows']} rows removed)")
+    print("Added calculated column: days_to_report")
+    print(f"Saved clean CSV to {result['outputs']['csv']} ({stats['cleanRows']} rows)")
+    print(f"Saved summary report to {result['outputs']['report']}")
 
 
 if __name__ == "__main__":
