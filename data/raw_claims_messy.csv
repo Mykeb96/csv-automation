@@ -1,0 +1,104 @@
+claim_id,employee_id,employee_name,employer_name,injury_date,report_date,body_part,injury_type,claim_status,days_lost,medical_cost,indemnity_cost,total_paid,state,adjuster,notes
+CLM-2024-001,E10234,  Maria Gonzalez  ,Acme Logistics LLC,03/15/2024,2024-03-18,Lower Back,Strain,Open,5,$1240.50,$800.00,"$2,040.50",CA,J. Smith,Slip on wet loading dock
+CLM-2024-001,E10234,Maria Gonzalez,Acme Logistics LLC,03/15/2024,3/18/24,lower back,Strain,open,5,1240.50,800,2040.50,ca,j. smith,Duplicate entry - verify
+CLM-2024-002,E10441,Robert Chen,Acme Logistics LLC,2024-04-02,04/05/2024,Right Hand,Laceration,Closed,0,890.00,0.00,890.00,CA,J. Smith,
+CLM-2024-003,E10892,  PATRICIA O'NEILL  ,Summit Healthcare Staffing,4/10/24,10-Apr-2024,Shoulder,Repetitive Motion,Pending Review,12,3450.75,2400.00,5850.75,NY,M. Patel,RN - patient transfer injury
+CLM-2024-004,E11005,James Wilson,Summit Healthcare Staffing,01/22/2024,2024-01-25,Knee,Sprain,OPEN,8,"$2,100.00",$1680.00,$3780.00,new york,M. Patel,
+CLM-2024-005,E11220,Lisa Park,BlueRiver Manufacturing,2023-11-30,12/01/2023,Finger - Index,Crush,Closed,3,450,0,450,TX,K. Nguyen,Machine guard incident
+CLM-2024-006,E11220,Lisa Park,BlueRiver Manufacturing,11/30/2023,12/1/23,Finger,Crush,closed,3,$450.00,-,450,Texas,K. Nguyen,Same as above?
+CLM-2024-007,E11567,David Martinez,BlueRiver Manufacturing,05/08/2024,5/9/24,Ankle,Twist,Open,2,675.25,320.00,995.25,TX,K. Nguyen,
+CLM-2024-008,E11890,Amanda Foster,Acme Logistics LLC,INVALID-DATE,2024-06-01,Back,Strain,Open,0,500,N/A,N/A,CA,J. Smith,Date entry error - fix in source
+CLM-2024-009,E11901,,Acme Logistics LLC,06/15/2024,06/18/2024,Neck,Strain,Pending,4,1100.00,880.00,1980.00,CA,J. Smith,Missing employee name
+CLM-2024-010,E12033,Michael Brown,GreenField Agriculture Co.,2024-02-28,02/29/2024,Lower Back,Strain,Reopened,15,8900.50,7200.00,16100.50,IA,R. Davis,Tractor rollover - follow up
+CLM-2024-011,E12033,Michael Brown,GreenField Agriculture Co,2/28/24,2024-02-29,Lower Back,strain,reopened,15,8900.5,7200,16100.5,Iowa,R. Davis,
+CLM-2024-012,E12144,Sarah Kim,GreenField Agriculture Co.,03/01/2024,,Wrist,Sprain,Open,-2,320.00,0,320.00,IA,R. Davis,Negative days - data error
+CLM-2024-013,E12255,Thomas Wright,Summit Healthcare Staffing,2024-05-20,2024-05-22,Lower Back,Strain,Closed,6,2100.00,1680.00,3780.00,NY,M. Patel,
+CLM-2024-014,E12366,Jennifer Lee,Summit Healthcare Staffing,5/21/24,22-May-2024,Foot,Fracture,Open,21,15000.00,12600.00,27600.00,NY,M. Patel,Fall from step stool
+CLM-2024-015,E12477,Carlos Rivera,Metro Construction Group,2024-01-10,01/12/2024,Head,Contusion,Denied,0,0.00,0.00,0.00,NJ,T. Brooks,Not work related per investigation
+CLM-2024-016,E12588,Emily Johnson,Metro Construction Group,01/15/2024,2024-01-17,Eye,Foreign Body,Closed,1,1250.00,0,1250,NJ,T. Brooks,Grinding - PPE issue noted
+CLM-2024-017,E12699,William Davis,Metro Construction Group,2024-03-05,03/07/2024,Multiple,Fall,Open,14,"18,500.00",14800.00,33300.00,NJ,T. Brooks,Scaffold incident
+CLM-2024-018,E12800,Angela Moore,Acme Logistics LLC,07/01/2024,07/03/2024,Shoulder,Strain,pending review,7,980.00,784.00,1764.00,CA,J. Smith,
+CLM-2024-019,E12911,Kevin Taylor,Acme Logistics LLC,7/2/2024,2024-07-05,Elbow,Strain,Open,3,445.00,356.00,801.00,CA,J. Smith,
+CLM-2024-020,E13022,Nancy White,BlueRiver Manufacturing,2024-06-10,06/12/2024,Hearing,Occupational,Open,0,2500.00,0.00,2500.00,TX,K. Nguyen,Noise exposure - annual screening
+CLM-2024-021,E13133,Richard Hall,BlueRiver Manufacturing,06/11/2024,,Chest,Inhalation,Open,5,3200.00,2560.00,5760.00,TX,K. Nguyen,Chemical spill - missing report date
+CLM-2024-022,E13244,Betty Allen,GreenField Agriculture Co.,2023-12-15,12/18/2023,Hip,Fracture,Closed,45,45000.00,36000.00,81000.00,IA,R. Davis,Barn ladder fall
+CLM-2024-023,E13355,George Clark,GreenField Agriculture Co.,12/20/2023,2023-12-22,Hand,Laceration,Closed,2,380.00,0.00,380.00,IA,R. Davis,
+CLM-2024-024,E13466,Helen Lewis,Summit Healthcare Staffing,2024-07-08,07/10/2024,Back,Strain,Open,0,0,0,0,NY,M. Patel,Report only - no treatment yet
+CLM-2024-025,E13577,Frank Walker,Metro Construction Group,2024-04-18,4/20/24,Knee,Meniscus Tear,Open,30,22000.00,17600.00,39600.00,NJ,T. Brooks,
+CLM-2024-026,E13688,Dorothy Young,Metro Construction Group,04/19/2024,2024-04-22,Back,Strain,Closed,5,1500.00,1200.00,2700.00,NJ,T. Brooks,
+CLM-2024-027,E13799,Charles King,Acme Logistics LLC,08/01/2024,08/03/2024,Ankle,Sprain,Open,4,720.00,576.00,1296.00,CA,J. Smith,
+CLM-2024-028,E13900,Margaret Scott,Summit Healthcare Staffing,2024-08-05,08/07/2024,Wrist,Carpal Tunnel,Pending Review,0,890.00,0.00,890.00,NY,M. Patel,Ergonomic eval scheduled
+CLM-2024-029,E14011,Donald Green,BlueRiver Manufacturing,8/6/2024,2024-08-09,Finger,Laceration,Open,1,275.50,220.40,495.90,TX,K. Nguyen,
+CLM-2024-030,E14122,Ruth Baker,BlueRiver Manufacturing,2024-08-07,08/09/2024,Thumb,Amputation,Open,90,125000.00,100000.00,225000.00,TX,K. Nguyen,Press accident - OSHA report filed
+CLM-2024-031,E14233,Paul Nelson,GreenField Agriculture Co.,2024-03-20,03/22/2024,Shoulder,Strain,Open,6,1100.00,880.00,1980.00,IA,R. Davis,
+CLM-2024-032,E14344,Sharon Carter,GreenField Agriculture Co.,3/21/24,2024-03-24,Foot,Puncture,Closed,3,420.00,0,420.00,IA,R. Davis,Nail in boot
+CLM-2024-033,E14455,Mark Mitchell,Metro Construction Group,2024-05-01,05/03/2024,Back,Strain,Open,10,4500.00,3600.00,8100.00,NJ,T. Brooks,
+CLM-2024-034,E14566,Deborah Perez,Metro Construction Group,5/2/2024,2024-05-05,Hand,Crush,Open,12,8900.00,7120.00,16020.00,NJ,T. Brooks,
+CLM-2024-035,E14677,Jason Roberts,Acme Logistics LLC,2024-09-01,09/03/2024,Lower Back,Strain,Open,3,650.00,520.00,1170.00,CA,J. Smith,
+CLM-2024-036,E14788,Michelle Turner,Summit Healthcare Staffing,09/02/2024,2024-09-05,Neck,Strain,Open,2,780.00,624.00,1404.00,NY,M. Patel,
+CLM-2024-037,E14899,Andrew Phillips,BlueRiver Manufacturing,2024-09-10,09/12/2024,Eye,Chemical Burn,Open,7,5600.00,4480.00,10080.00,TX,K. Nguyen,
+CLM-2024-038,E15000,Stephanie Campbell,BlueRiver Manufacturing,9/11/24,12-Sep-2024,Arm,Fracture,Open,28,18500.00,14800.00,33300.00,TX,K. Nguyen,
+CLM-2024-039,E15111,Timothy Parker,GreenField Agriculture Co.,2024-09-15,09/17/2024,Knee,Sprain,Open,5,890.00,712.00,1602.00,IA,R. Davis,
+CLM-2024-040,E15222,Rebecca Evans,GreenField Agriculture Co.,09/16/2024,2024-09-19,Hand,Laceration,Closed,1,195.00,0.00,195.00,IA,R. Davis,
+CLM-2024-041,E15333,Gregory Collins,Metro Construction Group,2024-10-01,10/03/2024,Back,Strain,Open,8,2100.00,1680.00,3780.00,NJ,T. Brooks,
+CLM-2024-042,E15444,Christine Stewart,Metro Construction Group,10/2/2024,2024-10-05,Leg,Fracture,Open,35,32000.00,25600.00,57600.00,NJ,T. Brooks,Fall from height
+CLM-2024-043,E15555,Brian Morris,Acme Logistics LLC,2024-10-10,10/12/2024,Shoulder,Strain,Open,4,920.00,736.00,1656.00,CA,J. Smith,
+CLM-2024-044,E15666,Kimberly Rogers,Summit Healthcare Staffing,10/11/2024,2024-10-14,Wrist,Sprain,Pending,3,540.00,432.00,972.00,NY,M. Patel,
+CLM-2024-045,E15777,Raymond Reed,BlueRiver Manufacturing,2024-10-15,10/17/2024,Finger,Laceration,Open,0,180.00,0.00,180.00,TX,K. Nguyen,Stitches only
+CLM-2024-046,E15888,Janet Cook,BlueRiver Manufacturing,10/16/2024,2024-10-19,Back,Strain,Open,6,1250.00,1000.00,2250.00,TX,K. Nguyen,
+CLM-2024-047,E15999,Arthur Bell,GreenField Agriculture Co.,2024-10-20,10/22/2024,Ankle,Twist,Open,3,410.00,328.00,738.00,IA,R. Davis,
+CLM-2024-048,E16000,Frances Murphy,GreenField Agriculture Co.,10/21/24,2024-10-24,Hip,Bruise,Closed,2,290.00,0,290,IA,R. Davis,
+CLM-2024-049,E16111,Jack Cooper,Metro Construction Group,2024-11-01,11/03/2024,Hand,Laceration,Open,2,385.00,308.00,693.00,NJ,T. Brooks,
+CLM-2024-050,E16222,Alice Richardson,Metro Construction Group,11/2/2024,2024-11-05,Knee,Strain,Open,7,1100.00,880.00,1980.00,NJ,T. Brooks,
+CLM-2024-051,E16333,Harold Cox,Acme Logistics LLC,2024-11-10,11/12/2024,Lower Back,Strain,Open,5,1050.00,840.00,1890.00,CA,J. Smith,
+CLM-2024-052,E16444,Gloria Ward,Summit Healthcare Staffing,11/11/2024,2024-11-14,Foot,Sprain,Open,4,620.00,496.00,1116.00,NY,M. Patel,
+CLM-2024-053,E16555,Ralph Torres,BlueRiver Manufacturing,2024-11-15,11/17/2024,Eye,Contusion,Closed,1,340.00,0.00,340.00,TX,K. Nguyen,Flying debris
+CLM-2024-054,E16666,Ann Peterson,BlueRiver Manufacturing,11/16/2024,2024-11-19,Shoulder,Strain,Open,9,2100.00,1680.00,3780.00,TX,K. Nguyen,
+CLM-2024-055,E16777,Wayne Ramirez,GreenField Agriculture Co.,2024-11-20,11/22/2024,Hand,Laceration,Open,2,275.00,220.00,495.00,IA,R. Davis,
+CLM-2024-056,E16888,Janice James,GreenField Agriculture Co.,11/21/24,2024-11-24,Back,Strain,Open,4,780.00,624.00,1404.00,IA,R. Davis,
+CLM-2024-057,E16999,Billy Watson,Metro Construction Group,2024-12-01,12/03/2024,Knee,Meniscus Tear,Open,25,19500.00,15600.00,35100.00,NJ,T. Brooks,
+CLM-2024-058,E17000,Theresa Brooks,Metro Construction Group,12/2/2024,2024-12-05,Back,Strain,Open,6,1350.00,1080.00,2430.00,NJ,T. Brooks,
+CLM-2024-059,E17111,Carl Kelly,Acme Logistics LLC,2024-12-10,12/12/2024,Ankle,Sprain,Open,3,495.00,396.00,891.00,CA,J. Smith,
+CLM-2024-060,E17222,Marie Sanders,Summit Healthcare Staffing,12/11/2024,2024-12-14,Wrist,Strain,Pending Review,2,445.00,356.00,801.00,NY,M. Patel,
+CLM-2024-061,E17333,Roy Price,BlueRiver Manufacturing,2024-12-15,12/17/2024,Finger,Laceration,Open,1,220.00,176.00,396.00,TX,K. Nguyen,
+CLM-2024-062,E17444,Phyllis Bennett,BlueRiver Manufacturing,12/16/2024,2024-12-19,Thumb,Crush,Open,14,9800.00,7840.00,17640.00,TX,K. Nguyen,
+CLM-2024-063,E17555,Eugene Wood,GreenField Agriculture Co.,2024-12-20,12/22/2024,Shoulder,Strain,Open,5,920.00,736.00,1656.00,IA,R. Davis,
+CLM-2024-064,E17666,Joyce Barnes,GreenField Agriculture Co.,12/21/24,2024-12-24,Foot,Puncture,Closed,2,350.00,0,350.00,IA,R. Davis,
+CLM-2024-065,E17777,Albert Ross,Metro Construction Group,2025-01-05,01/07/2025,Back,Strain,Open,4,890.00,712.00,1602.00,NJ,T. Brooks,New year claim
+CLM-2024-066,E17888,Julie Henderson,Metro Construction Group,1/6/2025,2025-01-09,Hand,Laceration,Open,2,310.00,248.00,558.00,NJ,T. Brooks,
+CLM-2024-067,E17999,Willie Coleman,Acme Logistics LLC,2025-01-10,01/12/2025,Knee,Sprain,Open,6,1100.00,880.00,1980.00,CA,J. Smith,
+CLM-2024-068,E18000,Denise Jenkins,Summit Healthcare Staffing,01/11/2025,2025-01-14,Neck,Strain,Open,3,670.00,536.00,1206.00,NY,M. Patel,
+CLM-2024-069,E18111,Arthur Perry,BlueRiver Manufacturing,2025-01-15,01/17/2025,Eye,Foreign Body,Closed,0,425.00,0.00,425.00,TX,K. Nguyen,
+CLM-2024-070,E18222,Gerald Powell,BlueRiver Manufacturing,1/16/2025,2025-01-19,Arm,Fracture,Open,21,14200.00,11360.00,25560.00,TX,K. Nguyen,
+CLM-2024-071,E18333,Brenda Long,GreenField Agriculture Co.,2025-01-20,01/22/2025,Hip,Bruise,Closed,1,265.00,0,265.00,IA,R. Davis,
+CLM-2024-072,E18444,Jack Russell,GreenField Agriculture Co.,01/21/2025,2025-01-24,Hand,Laceration,Open,2,290.00,232.00,522.00,IA,R. Davis,
+CLM-2024-073,E18555,Terry Fisher,Metro Construction Group,2025-01-25,01/27/2025,Back,Strain,Open,8,1750.00,1400.00,3150.00,NJ,T. Brooks,
+CLM-2024-074,E18666,Grace Ellis,Metro Construction Group,1/26/2025,2025-01-29,Leg,Fracture,Open,32,28500.00,22800.00,51300.00,NJ,T. Brooks,
+CLM-2024-075,E18777,Sean Wallace,Acme Logistics LLC,2025-02-01,02/03/2025,Lower Back,Strain,Open,4,720.00,576.00,1296.00,CA,J. Smith,
+CLM-2024-076,E18888,Martha Hughes,Summit Healthcare Staffing,02/02/2025,2025-02-05,Wrist,Sprain,Pending,3,510.00,408.00,918.00,NY,M. Patel,
+CLM-2024-077,E18999,Peter Flores,BlueRiver Manufacturing,2025-02-05,02/07/2025,Finger,Laceration,Open,1,195.00,156.00,351.00,TX,K. Nguyen,
+CLM-2024-078,E19000,Carol Washington,BlueRiver Manufacturing,2/6/2025,2025-02-09,Shoulder,Strain,Open,7,1280.00,1024.00,2304.00,TX,K. Nguyen,
+CLM-2024-079,E19111,Henry Butler,GreenField Agriculture Co.,2025-02-10,02/12/2025,Ankle,Twist,Open,3,380.00,304.00,684.00,IA,R. Davis,
+CLM-2024-080,E19222,Ann Simmons,GreenField Agriculture Co.,02/11/2025,2025-02-14,Foot,Sprain,Open,4,520.00,416.00,936.00,IA,R. Davis,
+CLM-2024-081,E19333,Ralph Foster,Metro Construction Group,2025-02-15,02/17/2025,Hand,Crush,Open,11,7200.00,5760.00,12960.00,NJ,T. Brooks,
+CLM-2024-082,E19444,Janet Gonzales,Metro Construction Group,2/16/2025,2025-02-19,Knee,Strain,Open,6,980.00,784.00,1764.00,NJ,T. Brooks,
+CLM-2024-083,E19555,Bruce Bryant,Acme Logistics LLC,2025-02-20,02/22/2025,Shoulder,Strain,Open,5,850.00,680.00,1530.00,CA,J. Smith,
+CLM-2024-084,E19666,Alice Alexander,Summit Healthcare Staffing,02/21/2025,2025-02-24,Back,Strain,Open,4,740.00,592.00,1332.00,NY,M. Patel,
+CLM-2024-085,E19777,Wayne Griffin,BlueRiver Manufacturing,2025-02-25,02/27/2025,Eye,Contusion,Closed,0,295.00,0,295.00,TX,K. Nguyen,
+CLM-2024-086,E19888,Julie Diaz,BlueRiver Manufacturing,2/26/2025,2025-03-01,Finger,Laceration,Open,2,340.00,272.00,612.00,TX,K. Nguyen,
+CLM-2024-087,E19999,Carl Hayes,GreenField Agriculture Co.,2025-03-01,03/03/2025,Hip,Fracture,Open,40,42000.00,33600.00,75600.00,IA,R. Davis,Silo incident
+CLM-2024-088,E20000,Marie Myers,GreenField Agriculture Co.,3/2/2025,2025-03-05,Hand,Laceration,Closed,1,210.00,0,210.00,IA,R. Davis,
+CLM-2024-089,E20111,Roy Ford,Metro Construction Group,2025-03-05,03/07/2025,Back,Strain,Open,9,1950.00,1560.00,3510.00,NJ,T. Brooks,
+CLM-2024-090,E20222,Theresa Hamilton,Metro Construction Group,3/6/2025,2025-03-09,Knee,Meniscus Tear,Open,18,16800.00,13440.00,30240.00,NJ,T. Brooks,
+CLM-2024-091,E20333,Billy Graham,Acme Logistics LLC,2025-03-10,03/12/2025,Ankle,Sprain,Open,3,465.00,372.00,837.00,CA,J. Smith,
+CLM-2024-092,E20444,Phyllis Sullivan,Summit Healthcare Staffing,03/11/2025,2025-03-14,Wrist,Carpal Tunnel,Pending Review,0,920.00,0.00,920.00,NY,M. Patel,
+CLM-2024-093,E20555,Eugene Wallace,BlueRiver Manufacturing,2025-03-15,03/17/2025,Thumb,Amputation,Open,0,0.00,0.00,0.00,TX,K. Nguyen,Reserved - pending medical bills
+CLM-2024-094,E20666,Joyce Woods,BlueRiver Manufacturing,3/16/2025,2025-03-19,Arm,Fracture,Open,24,16200.00,12960.00,29160.00,TX,K. Nguyen,
+CLM-2024-095,E20777,Albert Cole,GreenField Agriculture Co.,2025-03-20,03/22/2025,Shoulder,Strain,Open,5,870.00,696.00,1566.00,IA,R. Davis,
+CLM-2024-096,E20888,Denise West,GreenField Agriculture Co.,3/21/2025,2025-03-24,Foot,Puncture,Closed,2,365.00,0,365.00,IA,R. Davis,
+CLM-2024-097,E20999,Willie Jordan,Metro Construction Group,2025-03-25,03/27/2025,Back,Strain,Open,7,1420.00,1136.00,2556.00,NJ,T. Brooks,
+CLM-2024-098,E21000,Grace Owens,Metro Construction Group,3/26/2025,2025-03-29,Hand,Laceration,Open,2,325.00,260.00,585.00,NJ,T. Brooks,
+CLM-2024-099,E21111,Sean Reynolds,Acme Logistics LLC,2025-04-01,04/03/2025,Lower Back,Strain,Open,4,695.00,556.00,1251.00,CA,J. Smith,
+CLM-2024-100,E21222,Martha Fisher,Summit Healthcare Staffing,04/02/2025,2025-04-05,Neck,Strain,Open,3,655.00,524.00,1179.00,NY,M. Patel,
+CLM-2024-XXX,E99999,Test Employee,Test Employer Inc.,2024-01-01,2024-01-01,Test,Test,Invalid,abc,$not-a-number,xyz,??? ,XX,Unknown,Bad row for error handling demo
+CLM-2023-450,E08901,Old Claim Sample,Legacy Employer Corp,15/03/2023,18/03/2023,Back,Strain,Closed,10,5000.00,4000.00,9000.00,CA,J. Smith,Prior year - DD/MM format dates
