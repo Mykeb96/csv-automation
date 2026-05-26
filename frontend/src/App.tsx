@@ -130,7 +130,6 @@ function App() {
       <main>
         <section className="hero">
           <div className="container">
-            <p className="hero__eyebrow">Workers&apos; Comp Automation</p>
             <h1 className="hero__title">
               From messy exports to <em>clean claims</em>
             </h1>
