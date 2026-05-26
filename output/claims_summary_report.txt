@@ -1,0 +1,59 @@
+WORKERS' COMPENSATION CLAIMS SUMMARY REPORT
+================================================
+Generated: 2026-05-26 13:41
+
+OVERVIEW
+--------
+Total claims: 101
+Injury date range: 2023-03-15 to 2025-04-02
+Total days lost (all claims): 788
+
+FINANCIAL SUMMARY
+------------------
+Total medical costs:   $537,958.00
+Total indemnity costs: $420,844.40
+Total paid:            $958,302.40
+Average paid per claim: $9,488.14
+
+CLAIMS BY STATUS
+----------------
+  Open: 71
+  Closed: 19
+  Pending Review: 5
+  Pending: 3
+  Reopened: 2
+  Denied: 1
+
+CLAIMS BY STATE
+---------------
+  TX: 23
+  IA: 23
+  NJ: 23
+  CA: 17
+  NY: 15
+
+TOP EMPLOYERS BY CLAIM COUNT
+--------------------------------
+  BlueRiver Manufacturing: 23
+  Metro Construction Group: 23
+  GreenField Agriculture Co.: 22
+  Acme Logistics LLC: 16
+  Summit Healthcare Staffing: 15
+
+TOP INJURY TYPES
+-----------------
+  Strain: 38
+  Laceration: 14
+  Sprain: 11
+  Fracture: 8
+  Crush: 5
+
+REPORTING TIMELINESS
+---------------------
+Average days to report: 2.3
+Claims reported after 7 days: 0
+
+OPEN CLAIMS SNAPSHOT
+----------------------
+Open claims: 71
+Open claims total paid: $808,950.65
