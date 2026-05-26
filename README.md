@@ -162,6 +162,66 @@ npm run preview
 
 ---
 
+## Deploy to production (Vercel + Render)
+
+The app is split into two services:
+
+| Service | Host | What it runs |
+|---------|------|----------------|
+| **Frontend** | [Vercel](https://vercel.com) | Vite/React static site (`frontend/`) |
+| **API** | [Render](https://render.com) | FastAPI + pandas (`api.py`, `main.py`) |
+
+Local dev uses Vite’s proxy (`/api` → `localhost:8000`). Production uses `VITE_API_URL` to call the hosted API.
+
+### Step 1 — Deploy the API on Render
+
+1. Push this repo to GitHub.
+2. On Render: **New → Blueprint** (uses `render.yaml`) **or** **New → Web Service** and connect the repo.
+3. Settings (if not using Blueprint):
+   - **Root directory:** repository root (not `frontend/`)
+   - **Build command:** `pip install -r requirements.txt`
+   - **Start command:** `uvicorn api:app --host 0.0.0.0 --port $PORT`
+4. After deploy, copy the service URL (e.g. `https://claimflow-api.onrender.com`).
+5. Optional environment variables on Render:
+
+   | Variable | Purpose |
+   |----------|---------|
+   | `ALLOWED_ORIGINS` | Extra origins for CORS (comma-separated), e.g. your Vercel URL |
+   | `ALLOWED_ORIGIN_REGEX` | Default `https://.*\.vercel\.app` — allows all Vercel deploy URLs |
+
+6. Verify: open `https://YOUR-API.onrender.com/api/health` — should return `{"status":"ok"}`.
+
+> Free-tier Render services spin down when idle; the first request after sleep may take 30–60 seconds.
+
+### Step 2 — Deploy the frontend on Vercel
+
+1. Import the same GitHub repo in Vercel.
+2. **Root Directory:** `frontend`
+3. Framework preset **Vite** (or use `frontend/vercel.json`).
+4. **Environment variables:**
+
+   | Name | Value |
+   |------|--------|
+   | `VITE_API_URL` | Your Render API URL, **no trailing slash** (e.g. `https://claimflow-api.onrender.com`) |
+
+5. Deploy. Open your Vercel URL → **Live workspace** → **Run pipeline**.
+
+### Step 3 — Confirm CORS
+
+If the UI loads but **Run pipeline** fails with a network/CORS error:
+
+1. Add your exact Vercel URL to Render’s `ALLOWED_ORIGINS` (comma-separated).
+2. Redeploy the API (or wait for env var reload).
+
+`*.vercel.app` is already allowed via `ALLOWED_ORIGIN_REGEX` in `api.py` / `render.yaml`.
+
+### Environment files (reference)
+
+- `frontend/.env.example` — `VITE_API_URL` for local/production frontend
+- `.env.example` — `ALLOWED_ORIGINS` / `ALLOWED_ORIGIN_REGEX` for the API
+
+---
+
 ## API reference
 
 | Method | Endpoint | Description |
@@ -228,9 +288,12 @@ This demo assumes a **fixed CSV schema**. In environments with many employer or 
 
 | Issue | Solution |
 |-------|----------|
-| UI shows "Pipeline error" / fetch failed | Start the API: `uvicorn api:app --reload --port 8000` |
-| `FileNotFoundError` for input CSV | Run commands from the project root; ensure `data/raw_claims_messy.csv` exists |
-| Port 8000 in use | Use another port: `uvicorn api:app --port 8001` and update `frontend/vite.config.ts` proxy target |
+| UI shows "Pipeline error" / fetch failed (local) | Start the API: `uvicorn api:app --reload --port 8000` |
+| UI works on Vercel but Run pipeline fails | Set `VITE_API_URL` to your Render API URL; check `/api/health` on Render |
+| CORS error in browser console | Add your Vercel URL to Render `ALLOWED_ORIGINS`; ensure regex covers `*.vercel.app` |
+| Render API very slow first time | Free tier cold start — wait and retry |
+| `FileNotFoundError` for input CSV | API must run from repo root; ensure `data/raw_claims_messy.csv` is in the deployment |
+| Port 8000 in use (local) | Use another port and update `frontend/vite.config.ts` proxy target |
 
 ---
 

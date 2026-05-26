@@ -1,0 +1,17 @@
+# Deploy the Python API on Render (https://render.com)
+# Dashboard: New → Blueprint → connect this repo, or create a Web Service manually.
+services:
+  - type: web
+    name: claimflow-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: ALLOWED_ORIGIN_REGEX
+        value: https://.*\.vercel\.app
+      # Optional: add your production Vercel URL(s), comma-separated:
+      # - key: ALLOWED_ORIGINS
+      #   sync: false

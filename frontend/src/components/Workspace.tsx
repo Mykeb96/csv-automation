@@ -174,7 +174,9 @@ export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProp
               <strong>Pipeline error</strong>
               <p>{error}</p>
               <p className="alert__hint">
-                Start the API: <code>uvicorn api:app --reload --port 8000</code>
+                {import.meta.env.VITE_API_URL
+                  ? 'Check that the API is running and CORS allows this site.'
+                  : 'Local dev: run uvicorn api:app --reload --port 8000 in the project root.'}
               </p>
             </div>
           )}
