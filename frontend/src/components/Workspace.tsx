@@ -195,7 +195,7 @@ export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProp
               role="tab"
               aria-selected={activeTab === tab.id}
               onClick={() => setActiveTab(tab.id)}
-              disabled={!hasResult && tab.id !== 'raw' && tab.id !== 'walkthrough'}
+              disabled={!hasResult && tab.id !== 'raw'}
             >
               <span className={`preview-tab__dot ${tab.dotClass}`} />
               {tab.label}
