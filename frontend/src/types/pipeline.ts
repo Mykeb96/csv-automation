@@ -1,4 +1,4 @@
-export type PreviewTab = 'raw' | 'clean' | 'report'
+export type PreviewTab = 'raw' | 'clean' | 'report' | 'walkthrough'
 
 export interface PipelineStats {
   rawRows: number

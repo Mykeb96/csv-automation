@@ -13,7 +13,42 @@ const TABS: { id: PreviewTab; label: string; dotClass: string }[] = [
   { id: 'raw', label: 'Raw data', dotClass: 'preview-tab__dot--raw' },
   { id: 'clean', label: 'Clean data', dotClass: 'preview-tab__dot--clean' },
   { id: 'report', label: 'Report', dotClass: 'preview-tab__dot--report' },
+  { id: 'walkthrough', label: 'Walkthrough', dotClass: 'preview-tab__dot--walkthrough' },
 ]
+
+const WALKTHROUGH_EXAMPLES = [
+  {
+    title: 'Duplicate entry removed',
+    before:
+      'claim_id=CLM-100245 | employee=Jane Doe | injury_date=01/05/2026 | paid=$1,250.00',
+    after:
+      'kept one canonical record for CLM-100245 (duplicate row dropped during validation)',
+    why: 'Prevents double counting in totals and reporting metrics.',
+  },
+  {
+    title: 'Formatting normalized',
+    before:
+      'claim_id=" clm-20019 " | status="open " | injury_date="3-1-26" | paid="$950"',
+    after:
+      'claim_id="CLM-20019" | status="Open" | injury_date="2026-03-01" | paid=950.00',
+    why: 'Makes fields consistent so filters, joins, and calculations work reliably.',
+  },
+  {
+    title: 'Invalid ID removed',
+    before:
+      'claim_id="UNKNOWN" | employee=Mark Lee | injury_date=2026-02-14 | paid=$410.00',
+    after: 'row excluded (failed claim_id validation rule)',
+    why: 'Removes non-traceable records that cannot be audited or reconciled.',
+  },
+  {
+    title: 'Empty fields handled safely',
+    before:
+      'claim_id=CLM-2026-091 | adjuster="" | report_date="" | medical_cost="N/A"',
+    after:
+      'adjuster=blank | report_date=blank | medical_cost=blank (stored as missing, not guessed)',
+    why: 'Keeps data honest while avoiding invalid calculations and type errors.',
+  },
+] as const
 
 export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProps) {
   const [activeTab, setActiveTab] = useState<PreviewTab>('raw')
@@ -160,7 +195,7 @@ export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProp
               role="tab"
               aria-selected={activeTab === tab.id}
               onClick={() => setActiveTab(tab.id)}
-              disabled={!hasResult && tab.id !== 'raw'}
+              disabled={!hasResult && tab.id !== 'raw' && tab.id !== 'walkthrough'}
             >
               <span className={`preview-tab__dot ${tab.dotClass}`} />
               {tab.label}
@@ -212,7 +247,7 @@ export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProp
               <p className="preview-placeholder__title">No preview yet</p>
               <p className="preview-placeholder__text">
                 Click Run pipeline to process the sample CSV and preview raw data,
-                cleaned output, and the summary report.
+                cleaned output, the summary report, and walkthrough examples.
               </p>
             </div>
           )}
@@ -227,6 +262,27 @@ export function Workspace({ onStatsChange, onPipelineStepChange }: WorkspaceProp
 
           {!loading && hasResult && activeTab === 'report' && (
             <ReportView report={result.report} outputPath={result.outputs.report} />
+          )}
+
+          {!loading && activeTab === 'walkthrough' && (
+            <div className="walkthrough-view">
+              <p className="walkthrough-view__intro">
+                Row-level examples of what the pipeline changed between messy input and
+                clean output.
+              </p>
+              <div className="example-list">
+                {WALKTHROUGH_EXAMPLES.map((item) => (
+                  <article key={item.title} className="example-item">
+                    <h4 className="example-item__title">{item.title}</h4>
+                    <p className="example-item__label">Before</p>
+                    <p className="example-item__value">{item.before}</p>
+                    <p className="example-item__label">After</p>
+                    <p className="example-item__value">{item.after}</p>
+                    <p className="example-item__why">{item.why}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>

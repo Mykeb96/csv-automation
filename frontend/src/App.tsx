@@ -134,9 +134,9 @@ function App() {
               From messy exports to <em>clean claims</em>
             </h1>
             <p className="hero__subtitle">
-              A visual demo of an end-to-end claims pipeline — ingest employer CSV
-              data, standardize fields, calculate reporting metrics, and produce
-              clean files plus a summary report.
+              A guided walkthrough of an end-to-end claims pipeline. This demo
+              explains what each automation stage does, why it matters, and how the
+              final outputs support faster claim decisions.
             </p>
 
             <div className="hero__stats">
